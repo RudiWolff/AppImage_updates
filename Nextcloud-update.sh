@@ -3,7 +3,7 @@
 # Autor: Rüdiger Wolff
 # Date: 4/9/2024
 #
-# Programm, das das Update von Nextcloud übernimmt:
+# Programm, dass das Update von Nextcloud übernimmt:
 #
 # Vorhandene Dateien im Ordner /opt/Nextcloud:
 # 1) Nextcloud.AppImage
@@ -15,7 +15,7 @@
 #
 
 # Deklaration der Variablen:
-path="/opt/dummy"
+path="/opt/Nextcloud"
 
 # Prüfung, ob das Skript als root ausgeführt wird.
 if [ $EUID -ne 0 ];then
@@ -24,6 +24,7 @@ if [ $EUID -ne 0 ];then
 fi
 
 # >>> Hauptprogramm <<<
+
 # Auswahl der Datei zur Aktualisierung mithilfe von zenity
 filename=$(zenity --file-selection --title="Wähle die Datei zur Aktualisierung von Nextcloud.")
 # Prüfung, ob Datei ausgewählt wurde:
@@ -49,7 +50,7 @@ cd $path
 # Kopiere die heruntergeladene Nextcloud-Datei in den Zielordner
 cp $filename $path
 
-# Backup der Vorgänger-Version
+# Backup der Vorgänger-Version (überschreibt frühere Bak-Datei, falls vorhanden)
 mv -f Nextcloud.AppImage Nextcloud.AppImage.bak
 
 # Aktualisierung auf neue Version und "Aktivierung"
