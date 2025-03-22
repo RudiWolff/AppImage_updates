@@ -25,6 +25,8 @@ fi
 
 # >>> Hauptprogramm <<<
 
+cd /home/rwolff/Descargas/
+
 # Auswahl der Datei zur Aktualisierung mithilfe von zenity
 filename=$(zenity --file-selection --title="Wähle die Datei zur Aktualisierung von Nextcloud.")
 # Prüfung, ob Datei ausgewählt wurde:
